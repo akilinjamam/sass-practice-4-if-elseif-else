@@ -1,0 +1,61 @@
+@mixin size($height, $width) {
+    
+    @if ($width == 50%){
+        width: 50%;
+    }@else if ($width == 75%){
+        width: 75%;
+    }@else if ($width == 100%){
+        width: 100%;
+    }@else{
+        width: 100%;
+    }
+
+    height: $height;
+
+}
+
+
+@mixin alignment($value, $value2){
+
+        @if($value == center){
+            justify-content: center;
+        }@else if ($value == left){
+            justify-content: flex-start;
+        }@else if ($value == right){
+            justify-content: flex-end;
+        }@else{
+            justify-content: center;
+        }
+
+
+        @if($value2 == center){
+            align-items: center;
+        }@else if ($value2 == top){
+            align-items: baseline;
+        }@else if ($value2 == bottom){
+            align-items: end;
+        }@else{
+            align-items: center;
+        }
+
+        display: flex;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    @include alignment(center, center)
+}
+
+main{
+    @include size(75%, 50% );
+    border: 1px solid gray;
+    @include alignment(center, center);
+}
+
+main p{
+    @include size(75%, 100% );
+    @include alignment(center, center);
+    background-color: red;
+    text-align: center;
+}
